@@ -1,0 +1,46 @@
+------------------
+Unique cities in the given data file: 
+Chicago
+Los Angeles
+New York
+San Francisco
+Seattle
+------------------
+Details of top 3 individuals with the highest salary: 
+Alex, 33, San Francisco, 95000
+Carter, 33, San Francisco, 95000
+Henry, 33, Los Angeles, 94000
+------------------
+Details of average salary of each city: 
+City: New York, Salary: 73666.7
+City: Chicago, Salary: 81076.9
+City: Seattle, Salary: 75000
+City: Los Angeles, Salary: 76750
+City: San Francisco, Salary: 85083.3
+------------------
+Details of individuals with a salary above the overall average salary: 
+Alice  30  San Francisco  80000
+Sophie  32  Chicago  90000
+William  31  Chicago  85000
+Alex  33  San Francisco  95000
+Mia  29  Chicago  88000
+Sophia  26  San Francisco  80000
+Michael  34  Los Angeles  90000
+Ryan  31  New York  82000
+Emily  30  San Francisco  85000
+Jackson  32  New York  88000
+Scarlett  33  Chicago  92000
+Chloe  31  San Francisco  92000
+Mason  29  Los Angeles  80000
+Logan  30  New York  82000
+Aria  28  San Francisco  89000
+Avery  32  Chicago  92000
+Carter  33  San Francisco  95000
+Sofia  31  Los Angeles  80000
+Abigail  30  New York  81000
+Jack  28  San Francisco  92000
+Liam  32  Chicago  85000
+Benjamin  30  San Francisco  87000
+Daniel  31  New York  90000
+Henry  33  Los Angeles  94000
+------------------
