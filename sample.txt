@@ -1,0 +1,4 @@
+This is a sample text for testing shell commands
+The boom of AI and ML has taken the world upside down. Almost all domains have been captured by this monster that is growsing exponential day by day at non-decreasing rate
+From cooking recipe to making facebook's website, there is no field where AI has not been explored and exploited
+It has captured people and has the potential of wiping out a lot of job opportunities, at the same time making our lives so much easier
