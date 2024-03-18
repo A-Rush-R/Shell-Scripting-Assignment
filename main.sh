@@ -1,9 +1,7 @@
 #!/bin/bash
 
 echo Hello World
-Age=$1
-if [ "$Age" -ge 18 ]; then
-    echo "You can vote"
-else
-    echo "You cannot vote"    
-fi
+case $1 in
+   1) echo "wtf";;
+   2) echo "wtf2";;
+esac
