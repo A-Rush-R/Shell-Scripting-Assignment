@@ -36,12 +36,12 @@ echo Unique cities in the given data file:  >> $outfile
 # -F ', ' removes the comma and space between the values
 # 'NR>1 {print $3}' retrieves the third column of the record, removing the header
 # then we sort them and then remove adjacent duplicates using uniq
-# awk -F ', ' 'NR>1 {print $3}' data.csv | awk '!x[$0]++' >> $outfile
-# awk -F ', ' 'NR>1 {if (!seen[$3]++) print $3}' data.csv >> $outfile
-awk -F ', ' 'NR>1 {print $3}' data.csv | sort | uniq >> $outfile
+awk -F ', ' 'NR>1 {print $3}' $infile | sort | uniq >> $outfile
 
 dashes
 echo Details of top 3 individuals with the highest salary: >> $outfile
+# sort (excluding the header) along the 4th column in reverse order and then print the first three entries
+awk -F',' 'NR>1 {print $0}' $infile | sort -t',' -k4r | awk -F',' 'NR<4 {print}' >> $outfile
 
 # Logic for top 3 individuals
 

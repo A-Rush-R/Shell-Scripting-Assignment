@@ -1,0 +1,3 @@
+Alex, 33, San Francisco, 95000
+Carter, 33, San Francisco, 95000
+Henry, 33, Los Angeles, 94000
