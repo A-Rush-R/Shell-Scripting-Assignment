@@ -1,0 +1,14 @@
+------------------
+Unique cities in the given data file:
+Chicago
+Los Angeles
+New York
+San Francisco
+Seattle
+------------------
+Details of top 3 individuals with the highest salary:
+------------------
+Details of average salary of each city:
+------------------
+Details of individuals with a salary above the overall average salary:
+------------------
