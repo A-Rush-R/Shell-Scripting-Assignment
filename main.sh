@@ -17,8 +17,6 @@ calculate_average() {
     echo "City: $city, Salary: $average" >> $outfile
 }
 
-echo Hello World
-
 if [ $# -ne 2 ] 
 then
     echo Usage : Please provide exactly two filenames
@@ -65,6 +63,7 @@ echo Details of average salary of each city: >> $outfile
 unique_cities=$(awk -F ', ' 'NR>1 {print $3}' $infile | sort | uniq)
 
 # Iterate over each unique city and calculate average
+# unique_cities acts as input to the while loop
 while IFS= read -r city; do
     calculate_average $infile $outfile "$city"
 done <<< "$unique_cities"
