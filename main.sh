@@ -78,6 +78,7 @@ average=$(awk -F', ' '{print $4}' $infile | awk '{sum += $1} END {print sum/(NR-
 
 # Next we filter the records where the salary is greater than average 
 # Remove ',' as the delimiter, remove the header and then print if salary is greater than average
-awk -v avg="$average" -F',' 'NR > 1 && $4 > avg {print}' $infile >> $outfile
+# Replace ',' with empty space using gsub as given in the output file
+awk -v avg="$average" -F',' 'NR > 1 && $4 > avg {gsub(",", " "); print}' $infile >> $outfile
 
 dashes
