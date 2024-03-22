@@ -14,5 +14,5 @@ chmod +x main.sh # make the file executable
 
 If the above command fails to run, run the following 
 ```bash
-bash <input_file_name> <output_file_name>
+bash main.sh <input_file_name> <output_file_name>
 ```
