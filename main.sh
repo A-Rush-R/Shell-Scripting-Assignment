@@ -1,5 +1,4 @@
 #!/bin/bash
-
 dashes() {
     echo "------------------" >> $outfile  # Append dashes to the output file
 }
