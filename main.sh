@@ -12,7 +12,8 @@ calculate_average() {
 
     # Calculate the average of the 4th column for records matching the given city
     # maintain count to keep track of number of records for finding the average
-    average=$(awk -F', ' -v c="$city" '$3 == c {sum += $4; count++} END {print sum/count}' "$infile")
+    # if the output is an integer then remove the .0
+    average=$(awk -F', ' -v c="$city" '$3 == c {sum += $4; count++} END {if (sum/count == int(sum/count)) printf "%.0f", sum/count; else printf "%.1f", sum/count}' "$infile")
 
     echo "City: $city, Salary: $average" >> $outfile
 }
@@ -42,7 +43,7 @@ touch $outfile
 dashes
 
 # append first message
-echo Unique cities in the given data file:  >> $outfile
+echo "Unique cities in the given data file: " >> $outfile
 
 # -F ', ' removes the comma and space between the values
 # 'NR>1 {print $3}' retrieves the third column of the record, removing the header
@@ -50,14 +51,14 @@ echo Unique cities in the given data file:  >> $outfile
 awk -F ', ' 'NR>1 {print $3}' $infile | sort | uniq >> $outfile
 
 dashes
-echo Details of top 3 individuals with the highest salary: >> $outfile
+echo "Details of top 3 individuals with the highest salary: ">> $outfile
 # sort (excluding the header) along the 4th column in reverse order and then print the first three entries
 awk -F',' 'NR>1 {print $0}' $infile | sort -t',' -k4r | awk -F',' 'NR<4 {print}' >> $outfile
 
 # Logic for top 3 individuals
 
 dashes
-echo Details of average salary of each city: >> $outfile
+echo "Details of average salary of each city: ">> $outfile
 
 # find the unique cities (removing the header)
 unique_cities=$(awk -F ', ' 'NR>1 {print $3}' $infile | sort | uniq)
@@ -69,7 +70,7 @@ while IFS= read -r city; do
 done <<< "$unique_cities"
 
 dashes 
-echo Details of individuals with a salary above the overall average salary: >> $outfile
+echo "Details of individuals with a salary above the overall average salary: ">> $outfile
 
 # First we find the average salary
 # Remove the ', ' as the delimiter, extract the salaries and then loop over them to find the sum
