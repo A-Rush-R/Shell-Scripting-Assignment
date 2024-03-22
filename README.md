@@ -8,6 +8,6 @@
 
 Run the following command to run the file 
 ```bash
-chmod +x main.sh 
+chmod +x main.sh # make the file executable
 ./main.sh <input_file_name> <output_file_name>
 ```

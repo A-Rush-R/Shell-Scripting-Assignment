@@ -11,7 +11,9 @@ calculate_average() {
 
     # Calculate the average of the 4th column for records matching the given city
     # maintain count to keep track of number of records for finding the average
-    # if the output is an integer then remove the .0
+    # if the output is an integer (ie sum/count == int(sum/count) ) then remove the .0
+    # -v is used to pass the variable city into the awk statement
+    # END executes after the loop is completed
     average=$(awk -F', ' -v c="$city" '$3 == c {sum += $4; count++} END {if (sum/count == int(sum/count)) printf "%.0f", sum/count; else printf "%.1f", sum/count}' "$infile")
 
     echo "City: $city, Salary: $average" >> $outfile
@@ -51,7 +53,7 @@ awk -F ', ' 'NR>1 {print $3}' $infile | sort | uniq >> $outfile
 
 dashes
 echo "Details of top 3 individuals with the highest salary: ">> $outfile
-# sort (excluding the header) along the 4th column in reverse order and then print the first three entries
+# sort (excluding the header) along the 4th column in reverse order (-k4r) and then print the first three entries (NR<4)
 awk -F',' 'NR>1 {print $0}' $infile | sort -t',' -k4r | awk -F',' 'NR<4 {print}' >> $outfile
 
 # Logic for top 3 individuals
@@ -64,6 +66,8 @@ unique_cities=$(awk -F ', ' 'NR>1 {print $3}' $infile | sort | uniq)
 
 # Iterate over each unique city and calculate average
 # unique_cities acts as input to the while loop
+# The IFS= ensures leading and trailing whitespaces are preserved, and -r prevents backslashes from being interpreted as escape characters
+# <<< feeds the contents of the array to the while loop
 while IFS= read -r city; do
     calculate_average $infile $outfile "$city"
 done <<< "$unique_cities"
